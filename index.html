@@ -126,7 +126,7 @@ body:before{
   margin:0!important;
   padding:18px 32px!important;
   display:grid!important;
-  grid-template-columns:76px 1fr auto auto!important;
+  grid-template-columns:76px 1fr auto auto auto!important;
   gap:18px!important;
   align-items:center!important;
   background:rgba(255,255,255,.94)!important;
@@ -134,7 +134,7 @@ body:before{
   box-shadow:0 8px 30px rgba(16,24,40,.05)!important;
   position:sticky!important;
   top:0!important;
-  z-index:10!important;
+  z-index:50!important;
 }
 .logoBox{
   width:66px!important;
@@ -1288,6 +1288,184 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
     padding-top:3mm;font-size:7.5pt;color:#687383;display:flex;justify-content:space-between
   }
   .v47Signature{height:22mm;border:1px dashed #cfdad2;border-radius:10px;margin-top:4mm;padding:3mm;font-size:8pt;color:#667085}
+}
+</style>
+
+<style id="ptb-studio-polish">
+/* V49 : design plus studio, inspire des plateformes professionnelles */
+:root{
+  --studio-ink:#063f49;
+  --studio-ink-2:#0b5662;
+  --studio-paper:#fffdf8;
+  --studio-warm:#f7f1e8;
+  --studio-line:#eadfce;
+  --studio-soft:#edf7f2;
+  --studio-accent:#d5984a;
+  --studio-shadow:0 22px 60px rgba(6,63,73,.10);
+}
+body{
+  background:
+    linear-gradient(180deg,#fffdf8 0%,#f8f2ea 48%,#fffdf8 100%)!important;
+  color:#092f36!important;
+}
+body:before{
+  background:
+    linear-gradient(90deg,rgba(6,63,73,.035) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(6,63,73,.025) 1px,transparent 1px)!important;
+  background-size:42px 42px!important;
+  opacity:.65!important;
+}
+.header{
+  max-width:1480px!important;
+  width:calc(100% - 44px)!important;
+  margin:18px auto 0!important;
+  padding:16px 20px!important;
+  border:1px solid rgba(234,223,206,.92)!important;
+  border-radius:28px!important;
+  background:rgba(255,253,248,.92)!important;
+  box-shadow:0 18px 48px rgba(6,63,73,.08)!important;
+  backdrop-filter:blur(14px)!important;
+  top:12px!important;
+}
+.logoBox{
+  border-radius:999px!important;
+  background:var(--studio-ink)!important;
+  border:0!important;
+  box-shadow:0 14px 30px rgba(6,63,73,.18)!important;
+}
+.hero .brand{
+  color:var(--studio-ink-2)!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+  font-size:12px!important;
+}
+.hero .brand:before{
+  content:"";
+  display:inline-block;
+  width:34px;
+  height:2px;
+  margin-right:10px;
+  vertical-align:middle;
+  background:var(--studio-ink-2);
+  border-radius:999px;
+}
+.hero h1{
+  color:var(--studio-ink)!important;
+  font-size:30px!important;
+  letter-spacing:-.02em!important;
+}
+.app{
+  max-width:1480px!important;
+  padding:22px 22px 34px!important;
+}
+.grid{
+  grid-template-columns:260px minmax(0,1fr)!important;
+  gap:28px!important;
+}
+.side{
+  top:120px!important;
+  background:rgba(255,253,248,.92)!important;
+  border:1px solid var(--studio-line)!important;
+  border-radius:28px!important;
+  box-shadow:var(--studio-shadow)!important;
+}
+.main{
+  background:transparent!important;
+}
+.main h2{
+  color:var(--studio-ink)!important;
+  font-size:36px!important;
+  letter-spacing:-.03em!important;
+}
+.main h2:after{
+  background:var(--studio-accent)!important;
+  width:76px!important;
+}
+.navBtn{
+  color:var(--studio-ink)!important;
+  border-radius:18px!important;
+}
+.navBtn.active,.navBtn:hover{
+  background:#eef8f2!important;
+  color:var(--studio-ink-2)!important;
+}
+.navIcon,.quickIcon,.chipIcon,.chipAvatar{
+  background:#e7f3ee!important;
+  color:var(--studio-ink)!important;
+}
+.card,.chartWrap,.item,.exportPanel,.saveCard,.form,.summaryTile,.smartCard{
+  background:rgba(255,253,248,.96)!important;
+  border:1px solid var(--studio-line)!important;
+  border-radius:24px!important;
+  box-shadow:0 18px 50px rgba(6,63,73,.075)!important;
+}
+.card h3,.chartTitle,.itemText{
+  color:var(--studio-ink)!important;
+}
+.pageIntro{
+  background:linear-gradient(135deg,#fffdf8 0%,#f0f8f3 100%)!important;
+  border-color:var(--studio-line)!important;
+  border-radius:28px!important;
+}
+.primary{
+  background:linear-gradient(135deg,#063f49,#075c63)!important;
+  border-radius:16px!important;
+  box-shadow:0 14px 30px rgba(6,63,73,.22)!important;
+}
+.secondary,.manualSaveBtn{
+  border-color:var(--studio-line)!important;
+  color:var(--studio-ink)!important;
+  background:#fffdf8!important;
+  border-radius:16px!important;
+}
+.rate.active,.scorebar span{
+  background:var(--studio-ink)!important;
+  border-color:var(--studio-ink)!important;
+}
+.evalTab.active,.exportChoice.active,.evalExportCard.active{
+  border-color:var(--studio-ink)!important;
+  background:linear-gradient(135deg,#edf7f2,#fffdf8)!important;
+  color:var(--studio-ink)!important;
+}
+.table th{
+  background:#edf7f2!important;
+  color:var(--studio-ink)!important;
+}
+.ptbLangSwitch{
+  height:44px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:5px;
+  border:1px solid var(--studio-line);
+  border-radius:999px;
+  background:#fffdf8;
+  box-shadow:0 10px 24px rgba(6,63,73,.06);
+}
+.ptbLangSwitch button{
+  min-width:42px;
+  height:32px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:var(--studio-ink);
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.ptbLangSwitch button.active{
+  background:var(--studio-ink);
+  color:#fffdf8;
+}
+#google_translate_element,.goog-te-banner-frame,.skiptranslate{display:none!important}
+body{top:0!important}
+@media(max-width:1100px){
+  .header{grid-template-columns:70px 1fr!important}
+  .ptbLangSwitch{justify-self:start}
+}
+@media(max-width:850px){
+  .header{width:calc(100% - 24px)!important;margin-top:10px!important}
+  .main h2{font-size:30px!important}
 }
 </style>
 
@@ -3335,6 +3513,21 @@ function ptbPublicToast(message){
     `;
     header.appendChild(actions);
 
+    const langSwitch = document.createElement("div");
+    langSwitch.className = "ptbLangSwitch noPrint";
+    langSwitch.setAttribute("aria-label", "Choisir la langue");
+    langSwitch.innerHTML = `
+      <button type="button" data-lang="fr" class="active" title="Français">FR</button>
+      <button type="button" data-lang="en" title="English">EN</button>
+      <button type="button" data-lang="zh-CN" title="中文">中文</button>
+    `;
+    langSwitch.addEventListener("click", function(event){
+      const btn = event.target.closest("button[data-lang]");
+      if(!btn) return;
+      if(typeof window.ptbSetLanguage === "function") window.ptbSetLanguage(btn.dataset.lang);
+    });
+    header.appendChild(langSwitch);
+
     // Sync status text
     const orig = document.getElementById("saveStatusText");
     const copy = actions.querySelector("#saveStatusText2");
@@ -3529,5 +3722,52 @@ function ptbPublicToast(message){
   });
 })();
 </script>
+
+<div id="google_translate_element" class="noPrint" aria-hidden="true"></div>
+<script id="ptb-translate-switch">
+/* V49 : selecteur de langue public FR / EN / chinois simplifie */
+window.googleTranslateElementInit = function(){
+  if(!window.google || !google.translate) return;
+  new google.translate.TranslateElement({
+    pageLanguage:"fr",
+    includedLanguages:"fr,en,zh-CN",
+    autoDisplay:false
+  }, "google_translate_element");
+};
+
+window.ptbSetLanguage = function(lang){
+  document.querySelectorAll(".ptbLangSwitch button").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+  if(lang === "fr"){
+    const frame = document.querySelector("iframe.goog-te-banner-frame");
+    try{
+      const restore = frame && frame.contentDocument
+        ? frame.contentDocument.querySelector("button[id*='restore'], .goog-close-link")
+        : null;
+      if(restore) restore.click();
+    }catch(e){}
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + location.hostname;
+    if(!document.documentElement.classList.contains("translated-ltr")) return;
+    location.reload();
+    return;
+  }
+  const apply = () => {
+    const combo = document.querySelector(".goog-te-combo");
+    if(!combo) return false;
+    combo.value = lang;
+    combo.dispatchEvent(new Event("change"));
+    return true;
+  };
+  if(apply()) return;
+  let attempts = 0;
+  const timer = setInterval(() => {
+    attempts++;
+    if(apply() || attempts > 20) clearInterval(timer);
+  }, 250);
+};
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body></html>
