@@ -576,6 +576,20 @@ body:before{
   font-size:15px!important;
   color:#101828!important;
 }
+.itemQuestionLine{display:flex;align-items:flex-start;gap:9px;min-width:0}
+.itemQuestionText{min-width:0}
+.itemGuide{position:relative;display:inline-flex;flex:0 0 auto;margin-top:-2px}
+.itemGuideBtn{width:24px;height:24px;border-radius:999px;border:1px solid #d9eadf;background:#eef8f1;color:#0b4a52;font-weight:950;line-height:1;display:grid;place-items:center;cursor:help}
+.itemGuidePanel{position:absolute;left:50%;top:31px;transform:translateX(-50%);width:min(360px,calc(100vw - 56px));padding:15px 16px;border-radius:18px;border:1px solid var(--studio-line);background:#fffdf8;box-shadow:0 20px 55px rgba(16,24,40,.18);z-index:50;color:#24362e;font-size:13px;line-height:1.45;opacity:0;visibility:hidden;pointer-events:none}
+.itemGuide:hover .itemGuidePanel,.itemGuide:focus-within .itemGuidePanel{opacity:1;visibility:visible;pointer-events:auto}
+.itemGuidePanel:before{content:"";position:absolute;top:-7px;left:50%;width:12px;height:12px;background:#fffdf8;border-left:1px solid var(--studio-line);border-top:1px solid var(--studio-line);transform:translateX(-50%) rotate(45deg)}
+.itemGuidePanel b{display:block;color:#0b4a52;margin-bottom:6px;font-size:14px}
+.itemGuidePanel dl{margin:0;display:grid;gap:7px}
+.itemGuidePanel dt{font-weight:950;color:#0f7a42}
+.itemGuidePanel dd{margin:-5px 0 0;color:#4d6258}
+.itemGuidePanel .guideTip{margin-top:9px;padding:9px 10px;border-radius:12px;background:#eef8f1;color:#173425;font-weight:750}
+.item:nth-last-child(-n+3) .itemGuidePanel{top:auto;bottom:31px}
+.item:nth-last-child(-n+3) .itemGuidePanel:before{top:auto;bottom:-7px;border-left:0;border-top:0;border-right:1px solid var(--studio-line);border-bottom:1px solid var(--studio-line)}
 .metaRow select,.metaRow input{
   background:#fff!important;
 }
@@ -1243,8 +1257,8 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
     color:#102033!important;
     font-family:Inter, Arial, sans-serif!important;
   }
-  .v47Page{page-break-after:always}
-  .v47Page:last-child{page-break-after:auto}
+  .v47Page{page-break-after:auto;break-after:auto;margin-bottom:8mm}
+  .v47Page + .v47Page{border-top:1px solid #edf2ef;padding-top:7mm}
   .v47Header{
     display:flex;align-items:center;justify-content:space-between;
     border-bottom:3px solid #0b7a3b;padding-bottom:8mm;margin-bottom:7mm
@@ -1263,8 +1277,9 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   .v47Grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:6mm}
   .v47Grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:6mm}
   .v47Box{
-    border:1px solid #dfe9e2;border-radius:12px;padding:4mm;background:#fff;break-inside:avoid
+    border:1px solid #dfe9e2;border-radius:12px;padding:4mm;background:#fff;break-inside:auto
   }
+  .v47Grid2,.v47Grid3,.v47GraphBox{break-inside:avoid}
   .v47Box h2,.v47Box h3{
     margin:0 0 3mm 0;color:#0b7a3b;font-size:12pt;font-weight:950
   }
@@ -1284,12 +1299,12 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   .v47List{margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.45}
   .v47Note{font-size:9.2pt;color:#465565;line-height:1.45;margin:0}
   .v47Footer{
-    position:fixed;bottom:0;left:0;right:0;border-top:1px solid #dfe9e2;
+    position:static;border-top:1px solid #dfe9e2;margin-top:6mm;
     padding-top:3mm;font-size:7.5pt;color:#687383;display:flex;justify-content:space-between
   }
   .v47Signature{height:22mm;border:1px dashed #cfdad2;border-radius:10px;margin-top:4mm;padding:3mm;font-size:8pt;color:#667085}
   .v47RadarSvg{width:100%;height:auto;display:block;max-height:86mm}
-  .v47GraphBox{break-inside:avoid}
+  .v47LineSvg{width:100%;height:auto;display:block;max-height:72mm}
 }
 </style>
 
@@ -1494,11 +1509,11 @@ body{top:0!important}
 .pageVisualHero{position:relative;overflow:hidden;border:1px solid var(--studio-line);border-radius:28px;min-height:190px;margin:0 0 24px;box-shadow:var(--studio-shadow);background:#fffdf8}.pageVisualHero img{width:100%;height:240px;display:block;object-fit:cover}.pageVisualHero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,63,73,.74),rgba(6,63,73,.22) 48%,rgba(6,63,73,.04))}.pageVisualText{position:absolute;left:34px;bottom:28px;right:34px;z-index:1;max-width:720px;color:#fffdf8}.pageVisualText .eyebrow{color:#fffdf8;margin-bottom:12px}.pageVisualText .eyebrow:before{background:#fffdf8}.pageVisualText h3{font-size:30px;line-height:1.1;margin:0 0 8px;color:#fffdf8}.pageVisualText p{margin:0;line-height:1.55;color:rgba(255,253,248,.86);font-weight:700}@media(max-width:720px){.pageVisualHero img{height:220px}.pageVisualText{left:22px;bottom:22px}.pageVisualText h3{font-size:24px}}
 
 /* V53 page fondatrice */
-.founderGrid{display:grid;grid-template-columns:.78fr 1.22fr;gap:24px;align-items:start}.founderIdentity{background:#fffdf8;border:1px solid var(--studio-line);border-radius:28px;padding:18px;box-shadow:var(--studio-shadow);display:flex;flex-direction:column;justify-content:space-between}.founderPhoto{width:100%;height:290px;border-radius:24px;object-fit:cover;object-position:center 35%;display:block;margin-bottom:20px;box-shadow:0 18px 45px rgba(16,24,40,.13)}.founderIdentity h3{font-size:27px;line-height:1.1;margin:0 10px 8px;color:#0b3f49}.founderIdentity p{margin:0 10px;color:#5f6f66;line-height:1.6;font-weight:700}.founderText{font-size:16px;line-height:1.75;color:#31463b}.founderText p{margin:0 0 15px}.founderQuote{margin:20px 10px 6px;padding:20px 22px;border-radius:22px;background:#eef8f1;border:1px solid #d9ecde;color:#173425;font-weight:850;line-height:1.6}.founderFacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.founderFact{background:#fff;border:1px solid var(--studio-line);border-radius:22px;padding:18px;box-shadow:0 12px 28px rgba(16,24,40,.05)}.founderFact b{display:block;color:#0b4a52;margin-bottom:8px;font-size:15px}.founderFact span{display:block;color:#5f6f66;line-height:1.55;font-weight:650}@media(max-width:980px){.founderGrid,.founderFacts{grid-template-columns:1fr}.founderIdentity{min-height:auto}.founderPhoto{height:360px}}@media(max-width:620px){.founderPhoto{height:280px}}
+.founderGrid{display:grid;grid-template-columns:.78fr 1.22fr;gap:24px;align-items:stretch}.founderIdentity{background:#fffdf8;border:1px solid var(--studio-line);border-radius:28px;padding:18px;box-shadow:var(--studio-shadow);display:flex;flex-direction:column;justify-content:space-between}.founderPhoto{width:100%;height:290px;border-radius:24px;object-fit:cover;object-position:center 35%;display:block;margin-bottom:20px;box-shadow:0 18px 45px rgba(16,24,40,.13)}.founderIdentity h3{font-size:27px;line-height:1.1;margin:0 10px 8px;color:#0b3f49}.founderIdentity p{margin:0 10px;color:#5f6f66;line-height:1.6;font-weight:700}.founderText{font-size:16px;line-height:1.75;color:#31463b;height:100%;display:flex;flex-direction:column;justify-content:center}.founderText p{margin:0 0 15px}.founderQuote{margin:20px 10px 6px;padding:20px 22px;border-radius:22px;background:#eef8f1;border:1px solid #d9ecde;color:#173425;font-weight:850;line-height:1.6}.founderFacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.founderFact{background:#fff;border:1px solid var(--studio-line);border-radius:22px;padding:18px;box-shadow:0 12px 28px rgba(16,24,40,.05)}.founderFact b{display:block;color:#0b4a52;margin-bottom:8px;font-size:15px}.founderFact span{display:block;color:#5f6f66;line-height:1.55;font-weight:650}@media(max-width:980px){.founderGrid,.founderFacts{grid-template-columns:1fr}.founderIdentity{min-height:auto}.founderText{height:auto;display:block}.founderPhoto{height:360px}}@media(max-width:620px){.founderPhoto{height:280px}}
 
 
 /* V54 ajustements confort */
-.chartGrid{grid-template-columns:minmax(520px,1.15fr) minmax(420px,.85fr)!important}.chartGrid .chartWrap:first-child{min-height:520px!important}.chartGrid .chartWrap:first-child .radarBox svg{width:100%!important;max-height:440px!important}.homeFounderTeaser{display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:center;margin:42px 0;padding:24px;border:1px solid var(--studio-line);border-radius:28px;background:#fffdf8;box-shadow:var(--studio-shadow)}.homeFounderTeaser img{width:100%;height:280px;object-fit:cover;object-position:center 36%;border-radius:22px;display:block}.homeFounderTeaser h3{font-size:32px;line-height:1.12;margin:0 0 12px;color:var(--studio-ink);letter-spacing:-.03em}.homeFounderTeaser p{margin:0 0 18px;color:#52645d;line-height:1.7;font-size:16px}.ptbTranslateOverlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(255,253,248,.74);backdrop-filter:blur(5px);z-index:99999;color:#0b4a52;font-weight:950;font-size:18px}.ptb-translating .ptbTranslateOverlay{display:flex}.ptb-translating .app,.ptb-translating .header{opacity:.18;transition:opacity .18s ease}.goog-te-gadget,.goog-te-combo{font-size:0!important}@media(max-width:1100px){.chartGrid{grid-template-columns:1fr!important}.homeFounderTeaser{grid-template-columns:1fr}.homeFounderTeaser img{height:340px}}@media(max-width:620px){.homeFounderTeaser img{height:260px}}
+.chartGrid{grid-template-columns:minmax(520px,1.15fr) minmax(420px,.85fr)!important}.chartGrid .chartWrap:first-child{min-height:520px!important}.chartGrid .chartWrap:first-child .radarBox svg{width:100%!important;max-height:440px!important}.homeFounderTeaser{display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:center;margin:42px 0;padding:24px;border:1px solid var(--studio-line);border-radius:28px;background:#fffdf8;box-shadow:var(--studio-shadow)}.homeFounderTeaser img{width:100%;height:280px;object-fit:cover;object-position:center 36%;border-radius:22px;display:block}.homeFounderTeaser h3{font-size:32px;line-height:1.12;margin:0 0 12px;color:var(--studio-ink);letter-spacing:-.03em}.homeFounderTeaser p{margin:0 0 18px;color:#52645d;line-height:1.7;font-size:16px}.ptbTranslateOverlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(255,253,248,.78);backdrop-filter:blur(5px);z-index:99999;color:#0b4a52;font-weight:950;font-size:18px}.ptb-translating .ptbTranslateOverlay{display:flex}.goog-te-gadget,.goog-te-combo{font-size:0!important}html,body{top:0!important}iframe.goog-te-banner-frame,.goog-te-banner-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,#goog-gt-tt,.goog-te-balloon-frame{display:none!important;visibility:hidden!important;height:0!important;width:0!important;overflow:hidden!important}@media(max-width:1100px){.chartGrid{grid-template-columns:1fr!important}.homeFounderTeaser{grid-template-columns:1fr}.homeFounderTeaser img{height:340px}}@media(max-width:620px){.homeFounderTeaser img{height:260px}}
 
 </style>
 
@@ -1784,6 +1799,110 @@ function setHelp(d,c,v){activeE().helps[key(d,c)]=v}
 function setComment(d,c,v){activeE().comments[key(d,c)]=v}
 function cotableItems(d){return d.items.filter(x=>!x.section)}
 function scoreEval(e){let total=0,max=0,unanswered=0,nc=0,domainScores=[];domains().forEach((d,di)=>{let s=0,m=0,u=0,n=0;cotableItems(d).forEach(it=>{const r=e.ratings[key(di,it.code)];if(r===undefined)u++;else if(r==="NC")n++;else{s+=Number(r);m+=6}});const pct=m?Math.round(s/m*100):0;domainScores.push({name:d.name,color:d.color,score:s,max:m,pct,unanswered:u,nc:n});total+=s;max+=m;unanswered+=u;nc+=n});return{total,max,pct:max?Math.round(total/max*100):0,unanswered,nc,domains:domainScores}}
+function escHtml(value){return String(value??"").replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[ch]))}
+function stripAccents(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+function guideCard(g){
+  if(!g) return "";
+  return `<span class="itemGuide"><button type="button" class="itemGuideBtn" aria-label="Aide pour coter cet item">?</button><span class="itemGuidePanel" role="tooltip"><b>Aide à la cotation</b><dl><dt>Évaluer</dt><dd>${escHtml(g.evaluer)}</dd><dt>Matériel</dt><dd>${escHtml(g.materiel)}</dd><dt>Support</dt><dd>${escHtml(g.support)}</dd></dl><div class="guideTip">${escHtml(g.astuce)}</div></span></span>`;
+}
+function guideForLanguage(domainName, item){
+  const expressive = stripAccents(domainName).includes("expressif");
+  const code = String(item.code||"");
+  const group = code[0];
+  if(group==="1") return expressive
+    ? {evaluer:"Demander à la personne de décrire une brique ou une construction.", materiel:"Briques LEGO de tailles et formes variées.", support:"Carte « Décris ce que tu vois ».", astuce:"Jeu des devinettes : faire deviner une brique sans la montrer."}
+    : {evaluer:"Montrer deux briques et demander de désigner selon le critère.", materiel:"Briques LEGO de tailles variées.", support:"Cartes adjectifs visuels.", astuce:"Associer les tailles à des objets familiers."};
+  if(group==="2") return expressive
+    ? {evaluer:"Demander : combien de briques as-tu utilisées ?", materiel:"Briques LEGO à compter.", support:"Cartes chiffres.", astuce:"Compter en construisant une tour."}
+    : {evaluer:"Demander : combien y a-t-il de briques ?", materiel:"Briques LEGO.", support:"Cartes chiffres.", astuce:"Jeu de tours à compter ou association chiffre-brique."};
+  if(group==="3") return expressive
+    ? {evaluer:"Demander de nommer la couleur d’une brique présentée.", materiel:"Briques LEGO multicolores.", support:"Cartes couleur.", astuce:"Associer une couleur à une émotion, une saison ou un personnage."}
+    : {evaluer:"Dire : donne-moi une brique de cette couleur.", materiel:"Briques LEGO colorées.", support:"Cartes couleur.", astuce:"Memory des couleurs ou jeu de bingo."};
+  if(group==="4") return expressive
+    ? {evaluer:"Demander de raconter un moment : hier, aujourd’hui, demain, ensuite.", materiel:"Cartes pictos temps.", support:"Planning ou emploi du temps LEGO.", astuce:"Faire raconter sa journée en briques."}
+    : {evaluer:"Demander : quand fais-tu cela ?", materiel:"Pictogrammes temporels.", support:"Cartes hier, aujourd’hui, demain.", astuce:"Construire un planning LEGO avec les pictos."};
+  if(group==="5" || group==="6") return expressive
+    ? {evaluer:"Demander de nommer une forme présentée ou construite.", materiel:"LEGO et formes visuelles.", support:"Cartes formes 2D/3D.", astuce:"Associer forme et objet dans une petite scène LEGO."}
+    : {evaluer:"Dire : montre-moi cette forme.", materiel:"LEGO de formes variées.", support:"Cartes formes 2D/3D.", astuce:"Associer les formes aux objets du quotidien."};
+  if(group==="7") return expressive
+    ? {evaluer:"Demander de décrire la position des briques.", materiel:"LEGO et petites scènes montées.", support:"Plateau de repérage.", astuce:"Faire construire puis expliquer la position à un pair."}
+    : {evaluer:"Dire : mets la brique à l’endroit demandé.", materiel:"LEGO et tapis de position.", support:"Cartes prépositions.", astuce:"Mini jeu de construction guidée."};
+  if(group==="8") return expressive
+    ? {evaluer:"Faire poser des questions à un camarade sur une construction.", materiel:"LEGO et scènes variées.", support:"Cartes interrogatives.", astuce:"Tour de rôle pour poser des questions et donner des indices."}
+    : {evaluer:"Utiliser une scène LEGO et poser la question ciblée.", materiel:"Scénettes LEGO.", support:"Cartes quoi, qui, où, comment, combien.", astuce:"Faire deviner une histoire à partir des bonnes questions."};
+  return null;
+}
+function guideForItem(domainName, item){
+  const domain = stripAccents(domainName);
+  const text = stripAccents((item.text||"")+" "+(item.code||""));
+  const has = (...words) => words.some(w => text.includes(stripAccents(w)));
+  if(domain.includes("langage")) return guideForLanguage(domainName, item);
+  if(domain.includes("pre construction")){
+    if(has("s’assied","assied","chaise")) return {evaluer:"Observer au démarrage d’une activité LEGO.", materiel:"Chaise adaptée à la personne.", support:"Aucun support obligatoire.", astuce:"Personnaliser la place avec un pictogramme prénom ou une couleur repère."};
+    if(has("tolere","présence","presence")) return {evaluer:"Installer un petit espace de construction partagé.", materiel:"Tapis LEGO ou petite table commune.", support:"Fiche repère « espace partagé ».", astuce:"Commencer à deux puis augmenter progressivement."};
+    if(has("regarde")) return {evaluer:"Proposer un jeu où l’adulte ou le pair montre une brique.", materiel:"Briques LEGO simples.", support:"Carte consigne « Regarde / fais pareil ».", astuce:"Utiliser des consignes gestuelles nettes et visibles."};
+    if(has("duplo")) return {evaluer:"Donner la consigne : empile deux briques.", materiel:"Duplo 2x4 de couleurs vives.", support:"Carte visuelle « je prends / j’emboîte ».", astuce:"Commencer avec Duplo avant de passer aux petites briques."};
+    if(has("emboite","lego")) return {evaluer:"Demander d’emboîter deux briques LEGO classiques.", materiel:"Briques LEGO 2x4.", support:"Modèle visuel très simple.", astuce:"Adapter la taille des briques selon la motricité fine."};
+    if(has("commence")) return {evaluer:"Tirer une carte pour savoir qui commence.", materiel:"Cartes premier, deuxième, troisième.", support:"Cartes d’ordre de passage.", astuce:"Utiliser un dé ou une roue du hasard."};
+    if(has("voter","choix")) return {evaluer:"Proposer deux constructions, couleurs ou modèles.", materiel:"Deux modèles LEGO ou cartes illustrées.", support:"Cartes vote ou choix.", astuce:"Prévoir des jetons à déposer pour matérialiser le choix."};
+    if(has("couleur")) return {evaluer:"Proposer un tri de briques par couleur.", materiel:"Barquette de briques multicolores.", support:"Cartes couleur.", astuce:"Ajouter un petit défi chronométré si la personne est à l’aise."};
+    if(has("taille")) return {evaluer:"Proposer différentes tailles de briques à comparer.", materiel:"Duplo et LEGO mélangés.", support:"Carte petit / grand.", astuce:"Comparer les tours construites pour rendre la notion visible."};
+    if(has("forme")) return {evaluer:"Mélanger briques plates, hautes et formes variées.", materiel:"LEGO de formes variées.", support:"Carte visuelle « forme ».", astuce:"Jouer au loto des formes."};
+    if(has("tenons")) return {evaluer:"Faire trier les briques selon 2, 4, 6 ou 8 tenons.", materiel:"Briques LEGO classiques.", support:"Carte nombre de tenons.", astuce:"Compter ensemble les tenons avant de trier seul."};
+    if(has("demander les pieces","pièces")) return {evaluer:"Organiser un jeu où la personne doit demander une couleur ou une forme.", materiel:"LEGO et cartes pictos des pièces.", support:"Cartes pictogrammes de chaque brique.", astuce:"Utilisable avec la CAA ou un choix visuel."};
+    if(has("image et un objet")) return {evaluer:"Montrer une carte et demander de retrouver la brique correspondante.", materiel:"LEGO et cartes photo des briques.", support:"Cartes images des briques utilisées.", astuce:"Peut être proposé en memory."};
+    if(has("deux objets")) return {evaluer:"Donner un modèle et demander de retrouver ou reproduire l’objet identique.", materiel:"Deux exemplaires d’objets ou briques.", support:"Modèle imprimé simple.", astuce:"Variante tactile possible avec les yeux fermés si adapté."};
+    if(has("tableau double")) return {evaluer:"Créer un tableau couleur / forme ou taille / couleur.", materiel:"LEGO et grille tableau.", support:"Fiches tableau double entrée.", astuce:"Augmenter la complexité très progressivement."};
+    if(has("emploi du temps")) return {evaluer:"Structurer l’activité en plusieurs étapes visuelles.", materiel:"Emploi du temps LEGO.", support:"Pictogrammes étape 1, 2, 3.", astuce:"Ajouter un scratch ou repère à chaque étape terminée."};
+    if(has("schema","schéma")) return {evaluer:"Donner un modèle simple à suivre.", materiel:"Fiches modèles LEGO.", support:"Fiches de construction débutant.", astuce:"Agrandir les fiches au départ."};
+    if(has("arreter","arrêter")) return {evaluer:"Utiliser une consigne stop pendant l’activité.", materiel:"Carte STOP visuelle.", support:"Carte « STOP ».", astuce:"Utiliser un timer pour anticiper la fin."};
+    if(has("ranger")) return {evaluer:"Demander de ranger les briques par type.", materiel:"Boîtes de rangement catégorisées.", support:"Pictogrammes sur les boîtes.", astuce:"Faire un défi chrono rangement."};
+  }
+  if(domain.includes("construction")){
+    if(has("attendre","tour de role","tour de rôle")) return {evaluer:"Proposer un jeu collectif avec tour de rôle.", materiel:"Timer visuel, sablier ou jeton de tour.", support:"Cartes « c’est mon tour ».", astuce:"Matérialiser l’attente avec un sablier."};
+    if(has("partager","ressources","espace")) return {evaluer:"Observer une activité commune avec matériel limité.", materiel:"LEGO partagés et plateau commun.", support:"Fiche repère de l’espace partagé.", astuce:"Faire pivoter les rôles et les ressources."};
+    if(has("regles","règles")) return {evaluer:"Lire, rappeler puis observer les règles en situation.", materiel:"Affiche des règles.", support:"Affiche « règles du groupe ».", astuce:"Faire verbaliser les règles par les participants."};
+    if(has("roles","rôles","role","rôle")) return {evaluer:"Expliquer les rôles puis observer leur compréhension ou leur changement.", materiel:"Cartes rôles : constructeur, chercheur, guide.", support:"Badges de rôle.", astuce:"Utiliser un timer ou un signal pour changer de rôle."};
+    if(has("groupe de moins","groupe de plus")) return {evaluer:"Observer le travail dans la taille de groupe ciblée.", materiel:"LEGO à partager.", support:"Cartes binômes ou table de travail large.", astuce:"Prévoir un mini-projet adapté au nombre de participants."};
+    if(has("construction simple","construction complexe","collaboration")) return {evaluer:"Faire construire un modèle ensemble.", materiel:"Modèle LEGO simple ou complexe.", support:"Instructions découpées par rôle.", astuce:"Prévoir un plan à assembler à plusieurs."};
+    if(has("mener","diriger")) return {evaluer:"Demander de donner une consigne aux autres.", materiel:"Cartes guide.", support:"Badge chef de groupe.", astuce:"Changer de rôle à chaque séance."};
+    if(has("construction libre")) return {evaluer:"Donner un temps de création libre.", materiel:"LEGO libres.", support:"Table d’exposition.", astuce:"Faire présenter la création ensuite."};
+    if(has("aider","aide les autres")) return {evaluer:"Créer une situation où l’autre a besoin d’aide.", materiel:"Pièces à chercher pour l’autre.", support:"Carte « peux-tu m’aider ? ».", astuce:"Valoriser explicitement les comportements d’entraide."};
+    if(has("demander de l’aide","demande de l'aide")) return {evaluer:"Cacher ou retirer une pièce nécessaire pour observer la demande.", materiel:"LEGO et pièce manquante.", support:"Carte « aide-moi ».", astuce:"Utiliser la CAA si besoin."};
+    if(has("maintient le contact","communication verbale","communication non verbale")) return {evaluer:"Observer une activité nécessitant une communication continue.", materiel:"LEGO communs.", support:"Règle visuelle « regarde ton partenaire ».", astuce:"Rappeler de regarder ou pointer avant de poursuivre."};
+    if(has("encourage")) return {evaluer:"Faire deviner une création et observer les encouragements.", materiel:"Cartes bravo ou merci.", support:"Cartes encouragement.", astuce:"Distribuer des cartes d’encouragement en fin de tour."};
+    if(has("emotion","émotion","joie","tristesse","peur","colere","colère")) return {evaluer:"Utiliser des cartes émotions à montrer, nommer ou associer.", materiel:"Cartes émotions et briques de couleur.", support:"Baromètre émotion LEGO.", astuce:"Associer une émotion à une couleur ou une mini-construction."};
+    if(has("s’autoregule","autorégule","autorégule","concentr")) return {evaluer:"Observer la capacité à rester concentré avec un timer.", materiel:"Timer visuel et fidget si utile.", support:"Carte pause autorisée.", astuce:"Prévoir un coin calme LEGO."};
+    if(has("preferences","préférences")) return {evaluer:"Proposer des choix de modèles ou de couleurs.", materiel:"Cartes « je préfère ».", support:"Tableau j’aime / j’aime moins.", astuce:"Faire classer les modèles du préféré au moins préféré."};
+  }
+  if(domain.includes("competences sociales")){
+    if(has("contact oculaire")) return {evaluer:"Observer pendant une interaction dirigée.", materiel:"Aucun matériel obligatoire.", support:"Carte « regarde-moi ».", astuce:"Utiliser un jeu de marionnettes ou miroir."};
+    if(has("expression faciale")) return {evaluer:"Proposer un jeu de mime ou d’émotions.", materiel:"Cartes émotions.", support:"Cartes émotions LEGO.", astuce:"Associer un visage LEGO à l’émotion."};
+    if(has("gestuelle")) return {evaluer:"Observer les gestes pendant les consignes ou échanges.", materiel:"Aucun matériel obligatoire.", support:"Cartes gestes aidants.", astuce:"Jeu des gestes à deviner."};
+    if(has("distance")) return {evaluer:"Observer les déplacements et la distance en activité.", materiel:"Repères au sol.", support:"Visuels d’espace personnel.", astuce:"Créer une zone bulle au sol."};
+    if(has("touche","touché")) return {evaluer:"Observer les gestes physiques non sollicités.", materiel:"Fidget à manipuler si besoin.", support:"Rappel visuel des règles sociales.", astuce:"Carte « main sur moi = stop »."};
+    if(has("fidget")) return {evaluer:"Observer l’utilisation d’un objet de régulation pendant l’échange.", materiel:"Fidgets variés.", support:"Boîte à outils sensorielle.", astuce:"Laisser choisir le fidget préféré."};
+    if(has("posture")) return {evaluer:"Observer la posture en situation d’activité.", materiel:"Aucun matériel obligatoire.", support:"Schéma bonne posture.", astuce:"Faire une photo modèle si cela aide."};
+    if(has("volume")) return {evaluer:"Jeu voix basse, voix normale, voix forte.", materiel:"Cartes volume.", support:"Thermomètre de la voix.", astuce:"Associer le volume à des couleurs ou lieux."};
+    if(has("intonation")) return {evaluer:"Observer l’intonation pendant les consignes et échanges.", materiel:"Aucun matériel obligatoire.", support:"Cartes intonations.", astuce:"Dire la phrase comme un robot, puis naturellement."};
+    if(has("fluence")) return {evaluer:"Observer le débit de parole.", materiel:"Chronomètre ou sablier.", support:"Repère rapide / lent.", astuce:"Comparer un discours trop rapide et un discours adapté."};
+    if(has("ecoute","écoute")) return {evaluer:"Donner des consignes successives à suivre.", materiel:"Cartes consignes.", support:"Fiche « je t’écoute ».", astuce:"Jeu : touche les briques dans cet ordre."};
+    if(has("debute","conversation")) return {evaluer:"Observer en spontané ou en jeu de rôle.", materiel:"Cartes d’amorce.", support:"Cartes « je commence par... ».", astuce:"Jeu : commence l’histoire."};
+    if(has("tour dans la conversation","tour de parole")) return {evaluer:"Proposer un jeu conversationnel structuré.", materiel:"Timer ou jeton de parole.", support:"Carte « c’est mon tour ».", astuce:"Utiliser des sabliers de parole."};
+    if(has("partage")) return {evaluer:"Observer un jeu en binôme avec ressources limitées.", materiel:"LEGO communs.", support:"Fiche partage.", astuce:"Valoriser les comportements de coopération."};
+    if(has("conflit")) return {evaluer:"Mettre en scène une petite difficulté contrôlée.", materiel:"Cartes situation.", support:"Outils de résolution.", astuce:"Créer une boîte à solutions."};
+    if(has("ressenti")) return {evaluer:"Demander : tu as aimé ? pourquoi ?", materiel:"Cartes émotions et LEGO.", support:"Cartes j’aime / je n’aime pas.", astuce:"Créer un mur de ressenti en LEGO."};
+    if(has("evalue","évalue")) return {evaluer:"Après une activité, demander un retour sur un pair.", materiel:"Fiche évaluation simple.", support:"Carte « je dis bravo à... ».", astuce:"Faire un tour d’encouragement final."};
+    if(has("mecontentement","mécontentement")) return {evaluer:"Créer une situation de frustration légère et sécurisée.", materiel:"Cartes émotions.", support:"Boîte à mots doux.", astuce:"Associer l’émotion à une construction."};
+    if(has("prend soin")) return {evaluer:"Observer en interaction.", materiel:"Aucun matériel obligatoire.", support:"Fiche « j’aide quelqu’un ».", astuce:"Créer des missions d’aide collaborative."};
+    if(has("se defend","défend")) return {evaluer:"Mettre en jeu une petite injustice ou un désaccord.", materiel:"Cartes rôle.", support:"Fiche « je peux dire... ».", astuce:"Jeu de défense pacifique."};
+    if(has("propositions")) return {evaluer:"Proposer un jeu ou un modèle et observer les idées.", materiel:"Modèles LEGO.", support:"Cartes « et si on construisait... ».", astuce:"Créer une boîte à idées."};
+    if(has("refuse")) return {evaluer:"Donner un choix non souhaité et observer le refus.", materiel:"Cartes choix.", support:"Fiche « je préfère dire non ».", astuce:"Faire le jeu du non poli."};
+    if(has("excuse")) return {evaluer:"Jeu de rôle : bousculade, oubli ou erreur.", materiel:"Cartes situation.", support:"Carte « je suis désolé ».", astuce:"Associer une couleur de brique au pardon."};
+    if(has("explications")) return {evaluer:"Donner une consigne volontairement floue.", materiel:"Consignes complexes ou incomplètes.", support:"Fiche « peux-tu m’expliquer ? ».", astuce:"Encourager à lever la main ou désigner."};
+  }
+  return {evaluer:"Observer la compétence en situation de séance, avec une consigne simple et un contexte stable.", materiel:"Matériel LEGO adapté à l’âge, à la motricité et au niveau de la personne.", support:"Support visuel si nécessaire.", astuce:"Noter le niveau d’aide utilisé pour interpréter le score."};
+}
 function level(pct){ return levelObj(pct).label; }
 function saveLocal(){const patientKey=(state.patient.name||"sans_nom").toLowerCase().replace(/\W+/g,"_")+"_"+(state.patient.birth||"date"); const id="ptb_dossier_"+patientKey+"_"+Date.now(); const saves=JSON.parse(localStorage.getItem("ptb_patient_files")||"[]"); saves.unshift({id,patientKey,savedAt:new Date().toISOString(),state:JSON.parse(JSON.stringify(state))}); localStorage.setItem("ptb_patient_files",JSON.stringify(saves.slice(0,100))); alert("Dossier patient sauvegardé dans Mes dossiers.")}
 function loadSave(id){const saves=JSON.parse(localStorage.getItem("ptb_patient_files")||"[]"); const s=saves.find(x=>x.id===id); if(s){state=s.state;state.view="info";render()}}
@@ -2226,7 +2345,7 @@ function viewEval(){const e=activeE(),sc=scoreEval(e),d=domains()[state.activeDo
   <div class="quickAction" onclick="nav('summary')" style="cursor:pointer"><span class="quickIcon">↗</span><div>Évolution<br><small>Comparer les évaluations</small></div></div>
   <div class="quickAction" onclick="nav('export')" style="cursor:pointer"><span class="quickIcon">↓</span><div>Exporter PDF<br><small>Famille / Pro / Synthétique</small></div></div>
 </div>
-${domainTabs()}${evalCotationToolbar(ds,d)}<div class="card"><h3>${d.name}</h3><div class="scorebar"><span style="width:${ds.pct}%"></span></div><p><b>${ds.score}/${ds.max}</b> · ${ds.pct}% · ${level(ds.pct)} · NC : ${ds.nc}</p></div>${warning}`+evalVisibleItems(d).map(it=>{if(it.section)return`<div class="sectionTitle">${it.code}</div>`; const r=getRating(state.activeDomain,it.code); return `<div class="item" data-eval-item="${state.activeDomain}::${it.code}"><div class="itemTop"><div class="itemText"><span class="code">${it.code}</span>${it.text}</div><div class="rating">${[1,2,3,4,5,6].map(n=>`<button class="rate ${r===n?'active':''}" onclick="setRating(${state.activeDomain},'${it.code}',${n})">${n}</button>`).join("")}<button class="rate nc ${r==='NC'?'active':''}" onclick="setRating(${state.activeDomain},'${it.code}','NC')">NC</button></div></div><div class="metaRow"><select class="helpSelect" onchange="setHelp(${state.activeDomain},'${it.code}',this.value)">${helpOptions.map(h=>`<option ${e.helps[key(state.activeDomain,it.code)]===h?'selected':''}>${h}</option>`).join("")}</select><input class="commentInput" placeholder="Commentaire optionnel" value="${e.comments[key(state.activeDomain,it.code)]||''}" oninput="setComment(${state.activeDomain},'${it.code}',this.value)"></div></div>`}).join("")+headerActions()}
+${domainTabs()}${evalCotationToolbar(ds,d)}<div class="card"><h3>${d.name}</h3><div class="scorebar"><span style="width:${ds.pct}%"></span></div><p><b>${ds.score}/${ds.max}</b> · ${ds.pct}% · ${level(ds.pct)} · NC : ${ds.nc}</p></div>${warning}`+evalVisibleItems(d).map(it=>{if(it.section)return`<div class="sectionTitle">${it.code}</div>`; const r=getRating(state.activeDomain,it.code); return `<div class="item" data-eval-item="${state.activeDomain}::${it.code}"><div class="itemTop"><div class="itemText"><span class="itemQuestionLine"><span class="itemQuestionText"><span class="code">${it.code}</span>${it.text}</span>${guideCard(guideForItem(d.name,it))}</span></div><div class="rating">${[1,2,3,4,5,6].map(n=>`<button class="rate ${r===n?'active':''}" onclick="setRating(${state.activeDomain},'${it.code}',${n})">${n}</button>`).join("")}<button class="rate nc ${r==='NC'?'active':''}" onclick="setRating(${state.activeDomain},'${it.code}','NC')">NC</button></div></div><div class="metaRow"><select class="helpSelect" onchange="setHelp(${state.activeDomain},'${it.code}',this.value)">${helpOptions.map(h=>`<option ${e.helps[key(state.activeDomain,it.code)]===h?'selected':''}>${h}</option>`).join("")}</select><input class="commentInput" placeholder="Commentaire optionnel" value="${e.comments[key(state.activeDomain,it.code)]||''}" oninput="setComment(${state.activeDomain},'${it.code}',this.value)"></div></div>`}).join("")+headerActions()}
 function viewGoals(){const th=topAndLow(activeE()), sugg=suggestionsByDomain(activeE()); if(!th.low.length)return`<h2>Objectifs de séance</h2>${pageVisualHero("goals")}${pageIntro("Aide à la priorisation", "L’outil propose une lecture clinique et des objectifs SMART à partir des domaines renseignés. L’évaluateur garde toujours la main sur le choix final des objectifs.", "◎")}${clinicalProfileV27()}${smartGoalsV27()}${smartClinicalProfile()}${smartObjectives()}${evalTabs()}<div class="notice ok">Aucune cotation numérique pour l’instant. Renseigne au moins un item pour générer une proposition.</div>${headerActions()}`; return `<h2>Objectifs de séance – Évaluation ${state.activeEval+1}</h2>${pageVisualHero("goals")}${evalTabs()}<div class="notice">Sélectionner au maximum <b>3 objectifs de travail</b> au départ afin de garder une progression réaliste et observable.</div><div class="cards"><div class="card"><h3>Scores les plus faibles</h3><ul>${th.low.map(x=>`<li><b>${x.score}/6</b> – ${x.domain} : ${x.item}</li>`).join("")}</ul></div><div class="card"><h3>Compétences bien installées</h3><ul>${th.high.map(x=>`<li><b>${x.score}/6</b> – ${x.domain} : ${x.item}</li>`).join("")}</ul></div><div class="card"><h3>Conseil d’utilisation</h3><p>Choisir 1 objectif prioritaire, 1 objectif secondaire et 1 compétence d’appui pour soutenir l’engagement en séance.</p></div></div><div class="card"><h3>Propositions par domaine</h3><table class="table"><tbody>${sugg.map(s=>`<tr><th>${s.domain}</th><td>${s.text}</td></tr>`).join("")}</tbody></table></div>${headerActions()}`}
 function viewSummary(){const rows=domains().map((d,di)=>{let cells=state.evals.map(e=>scoreEval(e).domains[di].pct);let used=cells.filter(v=>v>0);let evo=used.length>=2?used[used.length-1]-used[0]:0;return`<tr><td>${d.name}</td>${cells.map(v=>`<td>${v||"–"}%</td>`).join("")}<td><b>${evo>0?"+":""}${evo}</b></td></tr>`}).join(""); return `<h2>Évolution du dossier</h2>${pageVisualHero("summary")}${pageIntro("Progression longitudinale", "Compare les évaluations successives sans interpréter les évaluations non réalisées comme une régression. Les courbes s’arrêtent aux données réellement renseignées.", "↗")}${evalTabs()}${clinicalProfileV27()}${evolutionLineChart()}${heatmapView()}<table class="table"><thead><tr><th>Domaine</th>${state.evals.map((e,i)=>`<th>Éval. ${i+1}<br><small>${e.date||"–"}</small></th>`).join("")}<th>Évolution</th></tr></thead><tbody>${rows}</tbody></table>${headerActions()}`}
 function viewSaves(){const saves=JSON.parse(localStorage.getItem("ptb_patient_files")||"[]"); if(!saves.length)return`<h2>Mes dossiers</h2>${pageIntro("Sauvegardes locales", "Retrouve les dossiers enregistrés sur cet appareil et ce navigateur. Pense à exporter les PDF pour conserver une trace externe si nécessaire.", "▣")}<div class="notice">Aucune sauvegarde locale pour l’instant.</div>`; return `<h2>Mes dossiers</h2><div class="saveCard"><table class="table"><thead><tr><th>Nom</th><th>Date de naissance</th><th>Âge</th><th>Mode</th><th>Dernière sauvegarde</th><th>Évaluations</th><th></th></tr></thead><tbody>`+saves.map(s=>`<tr><td>${s.state.patient.name||"Sans nom"}</td><td>${s.state.patient.birth||"–"}</td><td>${calculateAge(s.state.patient.birth)||s.state.patient.age||"–"}</td><td>${s.state.mode||"–"}</td><td>${new Date(s.savedAt).toLocaleString("fr-FR")}</td><td>${s.state.evals.filter(e=>e.date||Object.keys(e.ratings||{}).length).length}/6</td><td><button class="secondary" onclick="loadSave('${s.id}')">Rouvrir</button></td></tr>`).join("")+`</tbody></table></div>`}
@@ -3475,6 +3594,46 @@ function ptbPublicToast(message){
       return rows;
     }).join("");
   }
+  function printEvolutionLineChart(idxs){
+    if(!idxs || idxs.length < 2) return "";
+    const scores = idxs.map(i => scoreForEval(i).pct || 0);
+    const width = 760, height = 280;
+    const padL = 54, padR = 26, padT = 24, padB = 46;
+    const innerW = width - padL - padR;
+    const innerH = height - padT - padB;
+    const xFor = pos => padL + (idxs.length === 1 ? innerW / 2 : (innerW * pos / (idxs.length - 1)));
+    const yFor = val => padT + innerH - (innerH * Math.max(0, Math.min(100, val)) / 100);
+    const points = scores.map((v, pos) => `${xFor(pos)},${yFor(v)}`).join(" ");
+    const area = `${padL},${padT + innerH} ${points} ${padL + innerW},${padT + innerH}`;
+    const grid = [0,25,50,75,100].map(v => {
+      const y = yFor(v);
+      return `<line x1="${padL}" y1="${y}" x2="${padL + innerW}" y2="${y}" stroke="#e7efe9"/><text x="14" y="${y+4}" font-size="11" fill="#687383" font-weight="700">${v}%</text>`;
+    }).join("");
+    const labels = idxs.map((i, pos) => {
+      const x = xFor(pos), y = yFor(scores[pos]);
+      const ev = st().evals[i] || {};
+      return `<g>
+        <line x1="${x}" y1="${padT}" x2="${x}" y2="${padT + innerH}" stroke="#f0f4f1"/>
+        <circle cx="${x}" cy="${y}" r="7" fill="#0b7a3b" stroke="#fff" stroke-width="3"/>
+        <text x="${x}" y="${Math.max(18, y - 13)}" font-size="13" text-anchor="middle" fill="#0b3f49" font-weight="900">${scores[pos]}%</text>
+        <text x="${x}" y="${height - 22}" font-size="12" text-anchor="middle" fill="#31463b" font-weight="900">Éval. ${i+1}</text>
+        <text x="${x}" y="${height - 7}" font-size="10" text-anchor="middle" fill="#687383" font-weight="700">${safe(ev.date)}</text>
+      </g>`;
+    }).join("");
+    const sessionLabels = idxs.slice(1).map((i, pos) => {
+      const x = (xFor(pos) + xFor(pos+1)) / 2;
+      const ev = st().evals[i] || {};
+      return `<text x="${x}" y="${height - 31}" font-size="10" text-anchor="middle" fill="#8a6500" font-weight="800">${safe(ev.sessionsSincePrevious)} séance(s)</text>`;
+    }).join("");
+    return `<div class="v47Box v47GraphBox"><h2>Graphique d’évolution globale</h2><svg class="v47LineSvg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Graphique d’évolution entre les évaluations">
+      <rect x="0" y="0" width="${width}" height="${height}" rx="18" fill="#fbfefc"/>
+      ${grid}
+      <polygon points="${area}" fill="rgba(11,122,59,.10)"/>
+      <polyline points="${points}" fill="none" stroke="#0b7a3b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${labels}
+      ${sessionLabels}
+    </svg></div>`;
+  }
   function coverPage(){
     const s = st();
     const p = s.patient || {};
@@ -3530,6 +3689,7 @@ function ptbPublicToast(message){
     }).join("");
     return `<div class="v47Page">
       <div class="v47Header"><div class="v47Brand"><div><div class="v47Kicker">Suivi longitudinal</div><h1 class="v47Title">Évolution des évaluations</h1></div></div><div class="v47Date">${idxs.length} évaluations</div></div>
+      ${printEvolutionLineChart(idxs)}
       <div class="v47Grid2"><div class="v47Box"><h2>Progression globale</h2>${globalBars}</div><div class="v47Box"><h2>Lecture clinique</h2><p class="v47Note">Les scores doivent être interprétés avec le contexte, le niveau d’aide, le nombre de séances entre deux mesures et la familiarité de la situation. Une progression stable se lit sur plusieurs domaines et plusieurs temps d’observation.</p></div></div>
       <div class="v47Box"><h2>Évolution par domaine</h2><table class="v47ScoreTable"><thead><tr><th>Domaine</th>${idxs.map(i=>`<th>Éval. ${i+1}</th>`).join("")}<th>Évolution</th></tr></thead><tbody>${rows}</tbody></table></div>
       <div class="v47Footer"><span>Créé par Chloé Schmidt-Dhonneur · Pose ta brique®</span><span>Tous droits réservés</span></div>
@@ -3843,13 +4003,24 @@ window.googleTranslateElementInit = function(){
   }, "google_translate_element");
 };
 
+function ptbKillTranslateChrome(){
+  document.documentElement.style.top = "0px";
+  document.body.style.top = "0px";
+  document.body.style.position = "";
+  document.querySelectorAll("iframe.goog-te-banner-frame,.goog-te-banner-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,#goog-gt-tt,.goog-te-balloon-frame").forEach(el => {
+    try{ el.remove(); }catch(e){}
+  });
+}
+
 window.ptbSetLanguage = function(lang){
   const previousScroll = window.scrollY || document.documentElement.scrollTop || 0;
   document.querySelectorAll(".ptbLangSwitch button").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
+  ptbKillTranslateChrome();
   document.body.classList.add("ptb-translating");
   const stopComfortMode = () => {
+    ptbKillTranslateChrome();
     document.body.classList.remove("ptb-translating");
     try{ window.scrollTo({top: previousScroll, behavior: "instant"}); }catch(e){ window.scrollTo(0, previousScroll); }
   };
@@ -3870,10 +4041,14 @@ window.ptbSetLanguage = function(lang){
     return;
   }
   const apply = () => {
+    ptbKillTranslateChrome();
     const combo = document.querySelector(".goog-te-combo");
     if(!combo) return false;
     combo.value = lang;
     combo.dispatchEvent(new Event("change"));
+    setTimeout(ptbKillTranslateChrome, 80);
+    setTimeout(ptbKillTranslateChrome, 350);
+    setTimeout(ptbKillTranslateChrome, 900);
     return true;
   };
   if(apply()){
@@ -3889,6 +4064,7 @@ window.ptbSetLanguage = function(lang){
     }
   }, 180);
 };
+setInterval(ptbKillTranslateChrome, 900);
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
